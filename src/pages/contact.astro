@@ -1,39 +1,114 @@
 ---
 // src/pages/contact.astro
 import Layout from '../layouts/MainLayout.astro';
-import ContactForm from '../components/ContactForm.astro';
 ---
 
 <Layout title="Contact Us - RGNAST Group">
   <div class="contact-container">
-    <div class="contact-info">
-      <h1>Get in Touch</h1>
-      <p>We're here to help with all your property management needs</p>
-      <div class="contact-details">
-        <p>📞 (555) 123-4567</p>
-        <p>📧 info@rgnastgroup.com</p>
-        <p>📍 123 Business Street, City, State 12345</p>
-      </div>
+    <div class="contact-form-container">
+      <form action="https://formspree.io/f/mjkvoloa" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" />
+        </div>
+        
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject">
+            <option value="property-management">Property Management</option>
+            <option value="maintenance">Maintenance Request</option>
+            <option value="leasing">Leasing Inquiry</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-button">Send Message</button>
+      </form>
     </div>
-    <ContactForm />
   </div>
 </Layout>
 
 <style>
   .contact-container {
-    max-width: 1200px;
+    max-width: 600px;
     margin: 0 auto;
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    padding: 4rem 2rem;
   }
+
+  .contact-form-container {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .contact-form {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
+
+  .submit-button {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .submit-button:hover {
+    background: var(--secondary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
   @media (max-width: 768px) {
     .contact-container {
-      grid-template-columns: 1fr;
+      padding: 2rem 1rem;
     }
-  }
-  .contact-details {
-    margin-top: 2rem;
   }
 </style>
