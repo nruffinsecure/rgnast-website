@@ -8,7 +8,7 @@
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
+  color: var(--text-color);
   line-height: 1.2;
 }
 
@@ -17,17 +17,38 @@ img {
   height: auto;
 }
 
-button, .button {
-  cursor: pointer;
-  border: none;
-  background: var(--primary-color);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  font-weight: 500;
-  transition: background-color 0.2s;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-button:hover, .button:hover {
+.primary-button {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.primary-button:hover {
   background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.secondary-button {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.secondary-button:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
 }

@@ -26,8 +26,9 @@ const { title } = Astro.props;
 
 <style is:global>
   :root {
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
+    --primary-color: #2e7d32;    /* Main green */
+    --secondary-color: #1b5e20;  /* Darker green for hover states */
+    --accent-color: #43a047;     /* Lighter green for accents */
     --text-color: #333333;
     --background-color: #ffffff;
   }
@@ -42,5 +43,30 @@ const { title } = Astro.props;
   
   main {
     min-height: calc(100vh - 160px);
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--secondary-color);
+  }
+
+  button, .button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  button:hover, .button:hover {
+    background: var(--secondary-color);
   }
 </style>

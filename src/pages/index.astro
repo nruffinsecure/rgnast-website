@@ -28,10 +28,14 @@ import Services from '../components/Services.astro';
   .cta-button {
     display: inline-block;
     padding: 1rem 2rem;
-    background: #2563eb;
+    background: #2e7d32;  /* Changed from blue to green */
     color: white;
     border-radius: 0.5rem;
     text-decoration: none;
     margin-top: 1rem;
+    transition: background-color 0.2s;
+  }
+  .cta-button:hover {
+    background: #1b5e20;  /* Darker green for hover state */
   }
 </style>
