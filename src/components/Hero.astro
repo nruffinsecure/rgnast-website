@@ -16,10 +16,11 @@ const { title, subtitle } = Astro.props;
 
 <style>
   .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('/images/hero-bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('/images/homepage_background.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; /* This creates a parallax effect */
     height: 80vh;
     display: flex;
     align-items: center;
@@ -31,16 +32,19 @@ const { title, subtitle } = Astro.props;
   .hero-content {
     max-width: 800px;
     padding: 2rem;
+    z-index: 1;
   }
 
   h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   }
 
   .hero-buttons {
@@ -54,7 +58,7 @@ const { title, subtitle } = Astro.props;
     border-radius: 0.5rem;
     text-decoration: none;
     font-weight: 600;
-    transition: transform 0.2s;
+    transition: all 0.3s ease;
   }
 
   .primary-button {
@@ -70,5 +74,6 @@ const { title, subtitle } = Astro.props;
 
   .primary-button:hover, .secondary-button:hover {
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
 </style>
