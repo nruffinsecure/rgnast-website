@@ -10,33 +10,54 @@ import Layout from '../../layouts/MainLayout.astro';
       <div class="service-section">
         <h2>Comprehensive Property Management Solutions</h2>
         <div class="divider"></div>
-        <p>Our property management services include:</p>
-        <ul>
-          <li>Tenant screening and placement</li>
-          <li>Rent collection and disbursement</li>
-          <li>Property maintenance and repairs</li>
-          <li>Financial reporting and documentation</li>
-          <li>24/7 emergency response</li>
-          <li>Property inspections and evaluations</li>
-        </ul>
+        <div class="service-grid">
+          <div class="service-item">
+            <i class="fas fa-user-check"></i>
+            <h3>Tenant Screening</h3>
+            <p>Professional tenant screening and placement</p>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-dollar-sign"></i>
+            <h3>Rent Collection</h3>
+            <p>Efficient rent collection and disbursement</p>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-tools"></i>
+            <h3>Maintenance</h3>
+            <p>Property maintenance and repairs</p>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-file-invoice"></i>
+            <h3>Documentation</h3>
+            <p>Financial reporting and documentation</p>
+          </div>
+        </div>
       </div>
 
       <div class="service-section">
         <h2>Why Choose Our Property Management?</h2>
         <div class="divider"></div>
-        <p>We help property owners maximize their investment with:</p>
-        <ul>
-          <li>Professional tenant relations</li>
-          <li>Transparent financial reporting</li>
-          <li>Preventive maintenance programs</li>
-          <li>Market analysis and rental rate optimization</li>
-          <li>Regular property inspections</li>
-          <li>Dedicated property managers</li>
-        </ul>
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <i class="fas fa-handshake"></i>
+            <h3>Professional Relations</h3>
+            <p>Expert tenant relations management</p>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-chart-line"></i>
+            <h3>Financial Reports</h3>
+            <p>Transparent financial reporting</p>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Property Protection</h3>
+            <p>Comprehensive maintenance programs</p>
+          </div>
+        </div>
       </div>
 
       <div class="cta-container">
-        <a href="/contact" class="primary-button">Get Started Today</a>
+        <a href="/contact" class="cta-button">Get Started Today</a>
       </div>
     </div>
   </div>
@@ -59,17 +80,17 @@ import Layout from '../../layouts/MainLayout.astro';
   .content {
     background: white;
     padding: 3rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   .service-section {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 
   h2 {
+    font-size: 2rem;
     color: var(--text-color);
-    font-size: 1.8rem;
     margin-bottom: 1rem;
   }
 
@@ -77,34 +98,51 @@ import Layout from '../../layouts/MainLayout.astro';
     height: 3px;
     background: var(--primary-color);
     width: 100%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .service-grid, .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .service-item, .benefit-item {
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .service-item:hover, .benefit-item:hover {
+    transform: translateY(-5px);
+  }
+
+  i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
   }
 
   p {
-    font-size: 1.1rem;
-    line-height: 1.6;
     color: #666;
-    margin-bottom: 1.5rem;
-  }
-
-  ul {
-    margin: 1.5rem 0;
-    padding-left: 1.5rem;
-  }
-
-  li {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-    color: #444;
-    line-height: 1.4;
+    line-height: 1.6;
   }
 
   .cta-container {
-    margin-top: 3rem;
     text-align: center;
+    margin-top: 3rem;
   }
 
-  .primary-button {
+  .cta-button {
     display: inline-block;
     padding: 1rem 2.5rem;
     background: var(--primary-color);
@@ -112,13 +150,19 @@ import Layout from '../../layouts/MainLayout.astro';
     text-decoration: none;
     border-radius: 0.5rem;
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 600;
     transition: all 0.3s ease;
   }
 
-  .primary-button:hover {
+  .cta-button:hover {
     background: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .service-grid, .benefits-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
