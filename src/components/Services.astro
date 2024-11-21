@@ -1,0 +1,90 @@
+---
+// src/components/Services.astro
+import ServiceCard from './ServiceCard.astro';
+
+const services = [
+  {
+    title: "Property Management",
+    description: "Full-service property management including tenant screening, rent collection, and maintenance coordination.",
+    icon: "building"
+  },
+  {
+    title: "Tenant Screening",
+    description: "Comprehensive background checks, credit reports, and rental history verification for quality tenants.",
+    icon: "user-check"
+  },
+  {
+    title: "Maintenance",
+    description: "24/7 emergency maintenance response and preventive maintenance programs to protect your investment.",
+    icon: "tools"
+  },
+  {
+    title: "Financial Reporting",
+    description: "Detailed monthly statements, tax documentation, and performance analytics for your portfolio.",
+    icon: "chart-line"
+  }
+];
+---
+
+<section class="services-section">
+  <div class="container">
+    <div class="services-header">
+      <h2>Our Services</h2>
+      <p>Comprehensive property management solutions tailored to your needs</p>
+    </div>
+    
+    <div class="services-grid">
+      {services.map((service) => (
+        <ServiceCard 
+          title={service.title}
+          description={service.description}
+          icon={service.icon}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    padding: 4rem 2rem;
+    background: #f8f9fa;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .services-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .services-header h2 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+  }
+
+  .services-header p {
+    color: #666;
+    font-size: 1.1rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .services-header h2 {
+      font-size: 2rem;
+    }
+    
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

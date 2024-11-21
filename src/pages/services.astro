@@ -1,0 +1,49 @@
+---
+// src/pages/services.astro
+import Layout from '../layouts/MainLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const services = [
+  {
+    title: "Property Management",
+    description: "Comprehensive management solutions for property owners",
+    icon: "building",
+  },
+  {
+    title: "Tenant Screening",
+    description: "Thorough background checks and verification process",
+    icon: "users",
+  },
+  {
+    title: "Maintenance",
+    description: "24/7 maintenance and repair services",
+    icon: "tools",
+  },
+  // Add more services
+];
+---
+
+<Layout title="Our Services - RGNAST Group">
+  <div class="services-container">
+    <h1>Our Services</h1>
+    <div class="services-grid">
+      {services.map(service => (
+        <ServiceCard {...service} />
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+</style>

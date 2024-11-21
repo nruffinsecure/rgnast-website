@@ -1,0 +1,83 @@
+---
+// src/components/PropertyFilter.astro
+---
+
+<div class="property-filter">
+    <div class="filter-group">
+      <label for="type">Property Type</label>
+      <select id="type" name="type">
+        <option value="all">All Types</option>
+        <option value="apartment">Apartment</option>
+        <option value="house">House</option>
+        <option value="commercial">Commercial</option>
+      </select>
+    </div>
+  
+    <div class="filter-group">
+      <label for="price">Price Range</label>
+      <select id="price" name="price">
+        <option value="all">All Prices</option>
+        <option value="0-1000">$0 - $1,000</option>
+        <option value="1000-2000">$1,000 - $2,000</option>
+        <option value="2000+">$2,000+</option>
+      </select>
+    </div>
+  
+    <div class="filter-group">
+      <label for="location">Location</label>
+      <select id="location" name="location">
+        <option value="all">All Locations</option>
+        <option value="downtown">Downtown</option>
+        <option value="suburban">Suburban</option>
+        <option value="rural">Rural</option>
+      </select>
+    </div>
+  
+    <button type="button" class="filter-button">Apply Filters</button>
+  </div>
+  
+  <style>
+    .property-filter {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+  
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    label {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+  
+    select {
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+    }
+  
+    .filter-button {
+      padding: 0.5rem 1rem;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      align-self: end;
+    }
+  
+    .filter-button:hover {
+      background: var(--secondary-color);
+    }
+  </style>
+  

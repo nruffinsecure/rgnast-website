@@ -1,0 +1,39 @@
+---
+// src/pages/contact.astro
+import Layout from '../layouts/MainLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout title="Contact Us - RGNAST Group">
+  <div class="contact-container">
+    <div class="contact-info">
+      <h1>Get in Touch</h1>
+      <p>We're here to help with all your property management needs</p>
+      <div class="contact-details">
+        <p>📞 (555) 123-4567</p>
+        <p>📧 info@rgnastgroup.com</p>
+        <p>📍 123 Business Street, City, State 12345</p>
+      </div>
+    </div>
+    <ContactForm />
+  </div>
+</Layout>
+
+<style>
+  .contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  @media (max-width: 768px) {
+    .contact-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  .contact-details {
+    margin-top: 2rem;
+  }
+</style>

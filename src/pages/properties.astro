@@ -1,0 +1,34 @@
+---
+// src/pages/properties.astro
+import Layout from '../layouts/MainLayout.astro';
+import PropertyGrid from '../components/PropertyGrid.astro';
+import PropertyFilter from '../components/PropertyFilter.astro';
+
+const properties = [
+  {
+    id: 1,
+    title: "Luxury Downtown Apartment",
+    type: "residential",
+    status: "available",
+    price: 2500,
+    location: "Downtown",
+    image: "/images/property-1.jpg"
+  },
+  // Add more properties
+];
+---
+
+<Layout title="Our Properties - RGNAST Group">
+  <div class="properties-container">
+    <PropertyFilter />
+    <PropertyGrid properties={properties} />
+  </div>
+</Layout>
+
+<style>
+  .properties-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+</style>

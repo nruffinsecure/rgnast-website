@@ -1,0 +1,20 @@
+---
+// src/components/PropertyGrid.astro
+import PropertyCard from './PropertyCard.astro';
+const { properties } = Astro.props;
+---
+
+<div class="property-grid">
+  {properties.map((property) => (
+    <PropertyCard {...property} />
+  ))}
+</div>
+
+<style>
+  .property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+</style>
