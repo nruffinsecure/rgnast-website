@@ -5,7 +5,10 @@ import Hamburger from './Hamburger.astro';
 <header>
   <div class="header-content">
     <div class="logo">
-      <a href="/">RGNAST Group</a>
+      <a href="/" aria-label="Home">
+        <i class="fas fa-home"></i>
+        <span class="logo-text">RGNAST Group</span>
+      </a>
     </div>
     <Hamburger />
   </div>
@@ -34,7 +37,27 @@ import Hamburger from './Hamburger.astro';
   .logo a {
     color: var(--primary-color);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo i {
+    font-size: 1.5rem;
+  }
+
+  .logo-text {
     font-size: 1.5rem;
     font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .logo-text {
+      display: none;
+    }
+    
+    .logo i {
+      font-size: 1.8rem;
+    }
   }
 </style>
