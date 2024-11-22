@@ -6,13 +6,18 @@
     <span></span>
   </button>
   
+  <div id="menu-links" class="hidden">
+    <a href="/">Home</a>
+    <a href="/services">Services</a>
+    <a href="/contact">Contact</a>
+  </div>
+  
   <style>
     button {
       border: none;
       background: transparent;
       padding: 0.5rem;
       cursor: pointer;
-      display: none;
       z-index: 1001;
     }
     
@@ -25,10 +30,32 @@
       transition: all 0.3s ease-in-out;
     }
   
-    @media (max-width: 768px) {
-      button {
-        display: block;
-      }
+    #menu-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--background-color);
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+  
+    #menu-links a {
+      display: block;
+      padding: 1rem;
+      text-decoration: none;
+      color: var(--text-color);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+  
+    #menu-links a:last-child {
+      border-bottom: none;
+    }
+  
+    #menu-links.shown {
+      display: block;
     }
   
     button.active span:nth-child(1) {
@@ -43,4 +70,19 @@
       transform: rotate(-45deg) translate(7px, -7px);
     }
   </style>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuButton = document.getElementById('menu-button');
+      const menuLinks = document.getElementById('menu-links');
+  
+      if (menuButton && menuLinks) {
+        menuButton.addEventListener('click', () => {
+          menuButton.classList.toggle('active');
+          menuLinks.classList.toggle('shown');
+          menuLinks.classList.toggle('hidden');
+        });
+      }
+    });
+  </script>
   
