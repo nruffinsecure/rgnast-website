@@ -1,5 +1,4 @@
 ---
-// src/layouts/MainLayout.astro
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
@@ -21,6 +20,17 @@ const { title } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const menuButton = document.getElementById('menu-button');
+        const navigation = document.querySelector('nav');
+
+        menuButton?.addEventListener('click', () => {
+          menuButton.classList.toggle('active');
+          navigation?.classList.toggle('show');
+        });
+      });
+    </script>
   </body>
 </html>
 
@@ -30,7 +40,7 @@ const { title } = Astro.props;
     --secondary-color: #1b5e20;
     --text-color: #333333;
     --background-color: #ffffff;
-    --header-height: 80px; /* Add this variable */
+    --header-height: 80px;
   }
   
   body {
@@ -43,11 +53,28 @@ const { title } = Astro.props;
   
   main {
     min-height: calc(100vh - 160px);
-    padding-top: var(--header-height); /* Add this line */
+    padding-top: var(--header-height);
   }
 
-  /* Exception for home page hero section */
   .hero {
-    margin-top: calc(var(--header-height) * -1); /* This removes the padding for the hero section */
+    margin-top: calc(var(--header-height) * -1);
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      display: none;
+      position: absolute;
+      top: var(--header-height);
+      left: 0;
+      right: 0;
+      background: var(--background-color);
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      flex-direction: column;
+    }
+
+    nav.show {
+      display: flex;
+    }
   }
 </style>

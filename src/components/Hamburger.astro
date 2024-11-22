@@ -1,0 +1,45 @@
+---
+---
+<button id="menu-button" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  
+  <style>
+    button {
+      border: none;
+      background: transparent;
+      padding: 0.5rem;
+      cursor: pointer;
+      display: none;
+    }
+    
+    span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px 0;
+      background-color: var(--primary-color);
+      transition: transform 0.3s ease;
+    }
+  
+    @media (max-width: 768px) {
+      button {
+        display: block;
+      }
+    }
+  
+    button.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+  
+    button.active span:nth-child(2) {
+      opacity: 0;
+    }
+  
+    button.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+  </style>
+  
