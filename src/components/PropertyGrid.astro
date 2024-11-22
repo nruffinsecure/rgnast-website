@@ -1,11 +1,22 @@
 ---
 // src/components/PropertyGrid.astro
 import PropertyCard from './PropertyCard.astro';
+
+interface Property {
+    title: string;
+    type: string;
+    status: string;
+    price: number;
+    location: string;
+    image: string;
+    features: string[];
+}
+
 const { properties } = Astro.props;
 ---
 
 <div class="property-grid">
-  {properties.map((property) => (
+  {properties.map((property: Property) => (
     <PropertyCard {...property} />
   ))}
 </div>

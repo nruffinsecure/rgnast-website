@@ -1,6 +1,17 @@
 ---
 // src/components/PropertyCard.astro
-const { title, location, price, image, features, type, status } = Astro.props;
+interface Props {
+    id?: number;
+    title: string;
+    location: string;
+    price: number;
+    image: string;
+    features: string[];
+    type: string;
+    status: string;
+}
+
+const { title, location, price, image, features, type, status } = Astro.props as Props;
 ---
 
 <div class="property-card">
@@ -12,7 +23,7 @@ const { title, location, price, image, features, type, status } = Astro.props;
     <h3>{title}</h3>
     <p class="location">{location}</p>
     <div class="features">
-      {features && features.map((feature) => (
+      {features && features.map((feature: string) => (
         <span class="feature">{feature}</span>
       ))}
     </div>
