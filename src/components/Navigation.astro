@@ -1,31 +1,43 @@
 ---
+const navItems = [
+  { path: '/', label: 'Home' },
+  { path: '/services', label: 'Services' },
+  { path: '/contact', label: 'Contact' }
+];
 ---
+
 <nav>
-    <a href="/">Home</a>
-    <a href="/services">Services</a>
-    <a href="/contact">Contact</a>
-  </nav>
-  
-  <style>
-    nav {
-      display: flex;
-      gap: 2rem;
-    }
-  
+  {navItems.map(item => (
+    <a href={item.path}>{item.label}</a>
+  ))}
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+  }
+
+  nav a:hover {
+    color: var(--primary-color);
+  }
+
+  @media (max-width: 768px) {
     nav a {
-      color: var(--text-color);
-      text-decoration: none;
-      font-weight: 500;
+      width: 100%;
+      padding: 1rem;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
     }
-  
-    nav a:hover {
-      color: var(--primary-color);
+
+    nav a:last-child {
+      border-bottom: none;
     }
-  
-    @media (max-width: 768px) {
-      nav a {
-        padding: 0.5rem 0;
-      }
-    }
-  </style>
-  
+  }
+</style>

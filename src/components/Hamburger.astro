@@ -1,6 +1,6 @@
 ---
 ---
-<button id="menu-button" aria-label="Menu">
+<button id="menu-button" aria-label="Toggle menu">
     <span></span>
     <span></span>
     <span></span>
@@ -13,6 +13,7 @@
       padding: 0.5rem;
       cursor: pointer;
       display: none;
+      z-index: 1001;
     }
     
     span {
@@ -21,7 +22,7 @@
       height: 3px;
       margin: 5px 0;
       background-color: var(--primary-color);
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease-in-out;
     }
   
     @media (max-width: 768px) {
